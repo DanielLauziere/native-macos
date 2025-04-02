@@ -14,6 +14,7 @@ import {useState, useEffect} from 'react';
 import RNFS from 'react-native-fs';
 import ResizeImage from './src/ResizeImage';
 import VideoButton from './src/VideoButton';
+import FullsizeImage from './src/FullsizeImage';
 
 const Item = ({name, path, isFile, getFileContent}) => {
   return (
@@ -192,9 +193,7 @@ function App() {
       )}
 
       {selectedFile ? (
-        <View style={styles.fullsizeCenterContainer}>
-          <ResizeImage path={selectedFile} fullSize />
-        </View>
+        <FullsizeImage path={selectedFile} />
       ) : selectedVideo ? (
         <View style={styles.fullsizeCenterContainer}>
           <VideoPlayer filePath={selectedVideo} />

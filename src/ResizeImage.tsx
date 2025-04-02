@@ -37,7 +37,13 @@ const ResizeImage: FC<TablesProps> = ({path, fullSize = false}) => {
   return (
     <Image
       source={{uri: path}}
-      style={{...styles.imageThumbnail, aspectRatio, ...height, ...width}}
+      style={{
+        ...styles.imageThumbnail,
+        aspectRatio,
+        ...height,
+        ...width,
+        ...{resizeMode: 'contain'},
+      }}
       onLoad={e => {
         const width = e.nativeEvent.source.width;
         const height = e.nativeEvent.source.height;
